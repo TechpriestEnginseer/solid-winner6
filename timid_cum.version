@@ -1,13 +1,13 @@
 {
 	"masterVersionFile":"https://raw.githubusercontent.com/TechpriestEnginseer/solid-winner6/master/timid_cum.version",
 	"modName":"Content Unlocking Missions",
-	#"modThreadId":18297,
+	"modThreadId":24771,
 	"modVersion":
 	{
 		"major":1,
-		#"minor":0,
+		"minor":1,
 		#"patch":,
 	},
 	"starsectorVersion":"0.95.1a-RC6",
-	"directDownloadURL":"https://github.com/TechpriestEnginseer/solid-winner6/releases/download/1.0/Content.Unlocking.Missions.zip",
+	"directDownloadURL":"https://github.com/TechpriestEnginseer/solid-winner6/releases/download/1.1/Content.Unlocking.Missions.zip",
 }

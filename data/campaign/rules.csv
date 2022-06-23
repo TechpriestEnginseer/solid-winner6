@@ -2,6 +2,9 @@ id,trigger,conditions,script,text,options,notes
 # a fistful of credit interaction,,,,,,
 cum_afoci_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore afistfulofcredits 1 score:1000
 $cum_afoc_eventRef != null",SetOptionColor salExplore highlight,,,
+cum_afoci_openDialogWarning,PopulateSalvageOptions1,"!cum_HasMissionScore afistfulofcredits 1 score:1000
+$cum_afoc_eventRef != null","AddTextSmall ""It is recommended to complete A Fistful of Credits before proceeding, but you do you."" gray
+SetTextHighlights A Fistful of Credits",,,
 cum_afoci_salvage,DialogOptionSelected,"$option == salExplore
 cum_HasMissionScore afistfulofcredits 1 score:1000
 $cum_afoc_eventRef != null",,Salvage crews begin the recovery process and find a lot more than expected from a wreck like this.,cum_afoci_continue:Continue,
@@ -34,7 +37,7 @@ SetTooltip cum_ttt_ibrahim ""Ibrahim can offer another salvage pallet again in $
 SetTooltipHighlights cum_ttt_ibrahim $cum_ttt_tradeagain2
 SetEnabled cum_ttt_ibrahim false",,,
 cum_ttt_ibrahim_disableOption2,cum_DisableOptionIfNeeded,$player.credits < 40000,"SetTooltip cum_ttt_ibrahim ""You need 40,000 credits to buy a salvage pallet.""
-SetTooltipHighlights 40,000 credits
+SetTooltipHighlights cum_ttt_ibrahim 40,000 credits
 SetEnabled cum_ttt_ibrahim false",,,
 cum_ttt_ibrahim2_turnInOptionSelected,DialogOptionSelected,$option == cum_ttt_Agree,"AddRemoveCommodity credits -40000 true
 cum_ttt 1.25
@@ -51,11 +54,13 @@ cum_ttt_check_success,DialogOptionSelected,"$option == cum_ttt_ibrahim_test
 $id == ibrahim
 cum_HasMissionScore turningthetables 1 score:1000","$cum_ttt_check = true
 AddStoryPoints 1
-AddTextSmall ""Received the ability to purchase tech-mined pallets"" highlight
+AddTextSmall ""Received the ability to purchase tech-mined pallets for 40,000 credits"" highlight
 FireAll PopulateOptions","Ibrahim smiles. ""Yes, we do, and I can offer you a pallet from the salvaging operation. If you're interested, that is.""",,
 cum_ttt_check_failed,DialogOptionSelected,"$option == cum_ttt_ibrahim_test
 $id == ibrahim
-!cum_HasMissionScore turningthetables 1 score:1000",SetEnabled cum_ttt_ibrahim_test false,"Ibrahim shakes her head in sadness. ""Yes, we do, but Pathers have recently made it difficult for anyone to transfer it over to anyone. There is too much risk and danger right now. """,,
+!cum_HasMissionScore turningthetables 1 score:1000","SetEnabled cum_ttt_ibrahim_test false
+AddTextSmall ""Turning the Table must be completed to proceed."" gray
+SetTextHighlights Turning the Table","Ibrahim shakes her head in sadness. ""Yes, we do, but Pathers have recently made it difficult for anyone to transfer it over to anyone. There is too much risk and danger right now. """,,
 ,,,,,,
 #for the greater ludd interaction,,,,,,
 cum_ftgl_intercept,DialogOptionSelected,"$option == marketVisitBar
@@ -63,24 +68,51 @@ $market.id == salamanca score:100
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
+cum_ftgl_intercept_warning,DialogOptionSelected,"$option == marketVisitBar
+$market.id == salamanca score:100
+!cum_HasMissionScore forthegreaterlud 1 score:1000
+!$global.cum_ftgl","AddText ""You hear a voice. It's almost a mutter; impossible to make out."" gray
+AddTextSmall ""For the Greater Ludd must be completed to understand the mutter."" gray
+SetTextHighlights For the Greater Ludd",,cum_ftgl_ignore:Ignore,
 cum_ftgl_intercept2,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Corvus
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
 RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
+cum_ftgl_intercept2_warning,DialogOptionSelected,"$option == marketVisitBar
+cum_ftgl 0 Corvus
+!cum_HasMissionScore forthegreaterlud 1 score:1000
+!$global.cum_ftgl
+RollProbability 0.2","AddText ""You hear a voice. It's almost a mutter; impossible to make out."" gray
+AddTextSmall ""For the Greater Ludd must be completed to understand the mutter."" gray
+SetTextHighlights For the Greater Ludd",,cum_ftgl_ignore:Ignore,
 cum_ftgl_intercept3,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Magec
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
 RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
+cum_ftgl_intercept3_warning,DialogOptionSelected,"$option == marketVisitBar
+cum_ftgl 0 Magec
+!cum_HasMissionScore forthegreaterlud 1 score:1000
+!$global.cum_ftgl
+RollProbability 0.2","AddText ""You hear a voice. It's almost a mutter; impossible to make out."" gray
+AddTextSmall ""For the Greater Ludd must be completed to understand the mutter."" gray
+SetTextHighlights For the Greater Ludd",,cum_ftgl_ignore:Ignore,
 cum_ftgl_intercept4,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Askonia
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
 RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
+cum_ftgl_intercept4_warning,DialogOptionSelected,"$option == marketVisitBar
+cum_ftgl 0 Askonia
+!cum_HasMissionScore forthegreaterlud 1 score:1000
+!$global.cum_ftgl
+RollProbability 0.2","AddText ""You hear a voice. It's almost a mutter; impossible to make out."" gray
+AddTextSmall ""For the Greater Ludd must be completed to understand the mutter."" gray
+SetTextHighlights For the Greater Ludd",,cum_ftgl_ignore:Ignore,
 cum_ftgl_ignore,DialogOptionSelected,$option == cum_ftgl_ignore,"$option = marketVisitBar
 $global.cum_ftgl = true 0
 FireBest DialogOptionSelected",,,
@@ -141,6 +173,9 @@ FireBest DialogOptionSelected",You leave the room. Heading back to regular bar d
 # the wolf pack interaction,,,,,,
 cum_twp_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore thewolfpack 1 score:1000
 $cum_twp_eventRef != null",SetOptionColor salExplore highlight,,,
+cum_twp_openDialogWarning,PopulateSalvageOptions1,"!cum_HasMissionScore thewolfpack 1 score:1000
+$cum_twp_eventRef != null","AddTextSmall ""It is recommended to complete The Wolf Pack before proceeding, but you do you."" gray
+SetTextHighlights The Wolf Pack",,,
 cum_twp_salvage,DialogOptionSelected,"$option == salExplore
 cum_HasMissionScore thewolfpack 1 score:1000
 $cum_twp_eventRef != null",,Salvage crews begin the recovery process and find a lot more than expected from a wreck like this. There was still fuel found. Was this part of a Hegemony transport fleet?,cum_twp_continue:Continue,
@@ -153,6 +188,10 @@ cum_a_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore ambush 1 score:100
 $cum_a_eventRef != null
 !$defenderFleetDefeated","SetOptionColor salExplore highlight
 $hasDefenders = true",,,
+cum_a_openDialogWarning,PopulateSalvageOptions1,"!cum_HasMissionScore ambush 1 score:1000
+$cum_a_eventRef != null
+!$defenderFleetDefeated","AddTextSmall ""It is recommended to complete Ambush before proceeding, but you do you."" gray
+SetTextHighlights Ambush",,,
 cum_a_printDefaultDefenders,TriggerAutomatedDefenses,$cum_a_eventRef != null,"cum_a
 AddText ""As your $shipOrFleet moves in closer, new energy signatures are detected near the $shortName.""
 AddTextSmall ""Put these foolish ambitions to rest, Hegemony!"" gray",,,
@@ -201,24 +240,25 @@ FireAll PopulateOptions","Ibrahim humbled. ""My reputation seems to precede me. 
 ""If you're interested, I can let you in on my refining operation on Agreus. I am always looking to cut cost on transportation. Deliver me some ores and I can offer it refined in return. I don't care how you get those ores. Whether you buy it here or salvaged it somewhere else."" Ibrahim winks. ""Something the faction authorities won't notice between these transactions, it can be our little secret.""",,
 cum_hn_check_failed,DialogOptionSelected,"$option == cum_hn_ibrahim_test
 $id == ibrahim
-!cum_HasMissionScore hornetsnest 1 score:1000",SetEnabled cum_hn_ibrahim_test false,"Ibrahim looks at you, frowning. ""I can tell when someone is a bootlicker from a system away.""",,
+!cum_HasMissionScore hornetsnest 1 score:1000","SetEnabled cum_hn_ibrahim_test false
+AddTextSmall ""Hornet's Nest must be completed to proceed."" gray
+SetTextHighlights Hornet's Nest","Ibrahim looks at you, frowning. ""I can tell when someone is a bootlicker from a system away.""",,
 ,,,,,,
 #the last hurrah interaction,,,,,,
 cum_tlh,PopulateOptions,"$id == mairaath_abandoned_station1
-!$cum_tlh","AddText ""In the past, these vast arcology-stations of Mairaath formed the keystone of the terraforming project which transformed Mairaath into a paradise-world of fantastical transgenic re-imaginings of old-Earth biomes. Now there is nothing left on this astropolis. Unless there is something the Hegemony and the League must have missed?""
+!$cum_tlh
+cum_HasMissionScore thelasthurrah 1 score:1000","AddText ""In the past, these vast arcology-stations of Mairaath formed the keystone of the terraforming project which transformed Mairaath into a paradise-world of fantastical transgenic re-imaginings of old-Earth biomes. Now there is nothing left on this astropolis. Unless there is something the Hegemony and the League must have missed?""
 SetStoryOption cum_tlh_discover 2 historianBP ui_char_spent_story_point_industry ""Found something on the Abandoned Astropolis.""",,12:cum_tlh_discover:Conduct a deep search of the station,
+cum_tlh_warning,PopulateOptions,"$id == mairaath_abandoned_station1
+!$cum_tlh
+!cum_HasMissionScore thelasthurrah 1 score:1000","AddTextSmall ""The Last Hurrah should be completed to proceed further here on this station."" gray
+SetTextHighlights The Last Hurrah",,,
 cum_tlh_option,DialogOptionSelected,"$option == cum_tlh_discover
 cum_HasMissionScore thelasthurrah 1 score:1000","$cum_tlh = true
 cum_tlh
-FireAll PopulateOptions","Upon the chaos that happened on this astropolis many cycles ago, someone must have stockpiled this special thing. Perhaps in the hopes, Mairaath can be restored to her former glory should the opportunity comes up.",,
+FireAll PopulateOptions","During the chaos on this astropolis many cycles ago, someone must have stockpiled this special thing. Perhaps in the hopes, Mairaath can be restored to her former glory should the opportunity comes up.",,
 ,,,,,,
 #dire straits interaction,,,,,,
-cum_ds_defaultRaoGreeting,PickGreeting,"$id == rao score:1000
-$cum_ds_check","ShowPersonVisual
-FireAll PopulateOptions
-SetShortcut cutCommLinkPolite ""ESCAPE""","After a short wait spent watching propaganda blurbs scroll past the crest of the Hegemony navy, the comm-link connects you with the office of Admiral Rao.
-
-""So,"" the hero of the Siege of Raesvelg looks you over. ""Something you need, Captain?""",0:cutCommLinkPolite:Cut the comm link,
 cum_ds_rao,PopulateOptions,"$id == rao
 !$cum_ds_check",FireBest cum_ds_options,,"0:cum_ds_rao_test:""I wanted to converse with the great Admiral Orcus Rao, the Hero of Raesvelg.""",
 cum_ds_rao2,PopulateOptions,"$id == rao
@@ -234,18 +274,17 @@ FireAll PopulateOptions","Rao grins with an impressed look. ""Yes, it's amazing 
 You two exchange stories of fights you've been in and Rao begins to settle down. ""Listen, I have some grandchildren in my House that's been acting rowdy and unsuited for the Hegemony Navy. If your reputation precedes you within the Hegemony records, I believe you can be an exceptional role model to them. Let me know if you're interested.""",,
 cum_ds_check_failed,DialogOptionSelected,"$option == cum_ds_rao_test
 $id == rao
-!cum_HasMissionScore direstraits 1 score:1000",SetEnabled cum_ds_rao_test false,"Rao gives a stern look. ""I'm busy with current affairs, freelancer.""",,
+!cum_HasMissionScore direstraits 1 score:1000","SetEnabled cum_ds_rao_test false
+AddTextSmall ""Dire Straits must be completed to proceed."" gray
+SetTextHighlights Dire Straits","Rao gives a stern look. ""I'm busy with current affairs, freelancer.""",,
 cum_ds_check_success2,DialogOptionSelected,"$option == cum_ds_rao
 $id == rao
 RepGTE hegemony FRIENDLY","cum_ds
 AddTextSmall ""\""The typical length of such mentorship is $global.cum_ds_mercContractDurStr days, with some allowances for when they get back to port. Can be terminated early by either party, and so on - the standard stuff. When it's up, we can talk about extending it if both parties are agreeable.\n\nThey'll expect a salary of $global.cum_ds_salary credits per month. You have $player.creditsStr credits available.\""\n\nThis member of House Rao functions like a mercenary officer which does not count against the normal officer limit.""
 SetTextHighlightColors highlight highlight highlight highlight highlight good good
 SetTextHighlights $global.cum_ds_mercContractDurStr  $global.cum_ds_salary $player.creditsStr credits credits mercenary officer
-FireAll cum_ds_options","Rao pulls up your records. ""Yes Augusta would approve of you as a role model to one of our members. Here is their Hegemony profile.""",,
-cum_ds_check_success2a,cum_ds_options,,"
-",,"0:cum_ds_yes:""Sounds good.""",
-cum_ds_check_success2b,cum_ds_options,,"
-",,"1:cum_ds_no:""Not at the moment.""",
+SetShortcut cum_ds_no ""ESCAPE""","Rao pulls up your records. ""Yes Augusta would approve of you as a role model to one of our members. Here is their Hegemony profile.""","0:cum_ds_yes:""Sounds good.""
+1:cum_ds_no:""Not at the moment.""",
 cum_ds_check_success2c,DialogOptionSelected,"$option == cum_ds_yes
 !CallEvent $ome_eventRef atLimit $cum_ds_officer_id","cum_ds 1
 HideSecondPerson
@@ -292,6 +331,12 @@ cum_pop,PopulateOptions,"$id == daud
 $gotHoloExperience
 !$cum_HoloExperience
 cum_HasMissionScore predatororprey 1 score:1000",SetOptionColor cum_pop_holoExperience highlight,,cum_pop_holoExperience:Download the Daud holo experience,
+cum_pop_warning,PopulateOptions,"$id == daud
+$gotHoloExperience
+!$cum_HoloExperience
+!cum_HasMissionScore predatororprey 1 score:1000","AddTextSmall ""Predator or Prey should be completed here to proceed further."" gray
+SetTextHighlights Predator or Prey
+SetEnabled cum_pop_holoExperience false",,cum_pop_holoExperience:Download the Daud holo experience,
 cum_pop_option,DialogOptionSelected,"$option == cum_pop_holoExperience
 ","FireAll cum_pop_rewards
 AddStoryPoints 1
@@ -311,6 +356,10 @@ cum_stb_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore sinkingthebismar
 $cum_stb_eventRef != null
 !$defenderFleetDefeated","SetOptionColor salExplore highlight
 $hasDefenders = true",,,
+cum_stb_openDialogWarning,PopulateSalvageOptions1,"!cum_HasMissionScore sinkingthebismarck 1 score:1000
+$cum_stb_eventRef != null
+","AddTextSmall ""It is recommended to complete Sinking the Bismar before proceeding, but you do you."" gray
+SetTextHighlights Sinking the Bismar",,,
 cum_stb_printDefaultDefenders,TriggerAutomatedDefenses,$cum_stb_eventRef != null,"cum_stb
 AddText ""As your $shipOrFleet moves in closer, new energy signatures are detected near the $shortName.""
 AddTextSmall ""Take the Bismar down! Take him down! The Butcher of Skathi shall not live this day!"" gray",,,
@@ -325,6 +374,16 @@ cum_HasMissionScore nothingpersonal 1 score:1000
 !$cum_np_discover5","ShowDefaultVisual
 PrintDescription 3
 FireAll PopulateOptions
+SetShortcut defaultLeave ""ESCAPE""",,,
+cum_npOpenDialog_warning,OpenInteractionDialog,"$id == abandoned_spacedock
+$cum_np_eventRef
+!cum_HasMissionScore nothingpersonal 1 score:1000
+!$cum_np_discover5","ShowDefaultVisual
+PrintDescription 3
+FireAll PopulateOptions
+AddTextSmall ""Nothing Personal should be completed to proceed further here on this station."" gray
+SetTextHighlights Nothing Personal
+SetEnabled cum_np_discover1 false
 SetShortcut defaultLeave ""ESCAPE""",,,
 cum_np0,PopulateOptions,"$id == abandoned_spacedock
 $cum_np_eventRef",,,2:defaultLeave:Leave,
@@ -559,6 +618,9 @@ cum_np","You attempt a reconstruction of the data integrity. No reconstruction p
 #coral nebula interaction,,,,,,
 cum_cn_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore coralnebula 1 score:1000
 $cum_cn_eventRef != null",SetOptionColor salExplore highlight,,,
+cum_cn_openDialogWarning,PopulateSalvageOptions1,"!cum_HasMissionScore coralnebula 1 score:1000
+$cum_cn_eventRef != null","AddTextSmall ""It is recommended to complete Coral Nebula before proceeding, but you do you."" gray
+SetTextHighlights Coral Nebula",,,
 cum_cn_salvage,DialogOptionSelected,"$option == salExplore
 cum_HasMissionScore coralnebula 1 score:1000
 $cum_cn_eventRef != null",,Salvage crews begin the recovery process and find a lot more than expected from a wreck like this.,cum_cn_continue:Continue,
@@ -580,6 +642,9 @@ SetShortcut cumLeave ""ESCAPE""",,"0:cumVisit:Pay respects
 cum_MainOptions2,cum_MainOptions,"!$DidNotInvestigate
 cum_HasMissionScore forlornhope 1 score:1000","SetOptionColor cumInvestigate highlight
 ",,,
+cum_MainOptions2_warning,cum_MainOptions,"!$DidNotInvestigate
+!cum_HasMissionScore forlornhope 1 score:1000","AddTextSmall ""It is recommended to complete Forlorn Hope before searching, but you do you."" gray
+SetTextHighlights Forlorn Hope",,,
 cum_fh_VisitOnce,DialogOptionSelected,"$option == cumVisit
 !$VisitedOnce","$VisitedOnce = true 30
 $VisitedAtLeastOnce = true
@@ -597,9 +662,7 @@ SetShortcut cumLeave ""ESCAPE""","Your second-in-command complies with your orde
 
 To your crew's surprise, scanners begin to pick up a bizarre, dynamic magnetic field. You signal your salvage crews to the source and find a locked case bearing a Beta-level AI core recently startled by the search.",cumLeave:Leave,
 cum_fh_InvestigateFailed,DialogOptionSelected,"$option == cumInvestigate
-!$DidNotInvestigate","$DidNotInvestigate = true
-cum_fh
-SetShortcut cumLeave ""ESCAPE""","Your second-in-command complies with your order and searches the memorial. Hopefully no one was around to see this.
+!$DidNotInvestigate","SetShortcut cumLeave ""ESCAPE""","Your second-in-command complies with your order and searches the memorial. Hopefully no one was around to see this.
 
 To no one's surprise, nothing happened.",cumLeave:Leave,
 cum_fh_InvestigateLetsNot,DialogOptionSelected,"$option == cumInvestigate
@@ -622,7 +685,7 @@ cum_fh_interaction_b,DialogOptionSelected,$option == cum_fh_interaction_b,,"""Wh
 cum_fh_interaction_c,DialogOptionSelected,$option == cum_fh_interaction_c,"cum_fh true
 MakeOtherFleetNonHostile true
 AddXP 500
-AdjustRep hegemony FRIENDLY 5
+AdjustRep hegemony COOPERATIVE 5
 AddRemoveCommodity credits 20000 true
 AddStoryPoints 1
 AddRemoveCommodity beta_core -1","""Within that Paragon? Huh. Interesting. I apologize for the inconvenience I may have caused. I'll take this to Coatl Headquarters as soon as possible. Have something for your trouble."" The comm link is cut.","0:cutCommLink:""No sweat!""",
