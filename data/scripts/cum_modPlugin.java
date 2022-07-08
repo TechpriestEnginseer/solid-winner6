@@ -10,7 +10,6 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin.DerelictShipData;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
-import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.Entities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
@@ -80,18 +79,20 @@ public class cum_modPlugin extends BaseModPlugin {
                                 Ambush.setDiscoveryXP(250f);
                                 Ambush.setSalvageXP(250f);
                                 Ambush.getMemoryWithoutUpdate().set("$hasDefenders", true);
-                                FleetParamsV3 fParams = new FleetParamsV3(null, null,
+                                /*FleetParamsV3 fParams = new FleetParamsV3(null, null,
                                         Factions.TRITACHYON,
                                         2f,
                                         FleetTypes.TASK_FORCE,
-                                        1,
+                                        100,
                                         0, 0, 0, 0, 0, 0);
                                 fParams.flagshipVariantId = "doom_Strike";
                                 fParams.onlyRetainFlagship = true;
-                                CampaignFleetAPI defenders = FleetFactoryV3.createFleet(fParams);
+                                CampaignFleetAPI defenders = FleetFactoryV3.createFleet(fParams);*/
+                                CampaignFleetAPI defenders = FleetFactoryV3.createEmptyFleet(Factions.TRITACHYON, FleetTypes.TASK_FORCE, null);
                                 defenders.setName("Phase Group Gamma III");
                                 defenders.getCommander().getStats().setSkillLevel(Skills.PHASE_CORPS, 1);
-                                FleetMemberAPI member = defenders.getFlagship();
+                                //FleetMemberAPI member = defenders.getFlagship();
+                                FleetMemberAPI member = defenders.getFleetData().addFleetMember("doom_Strike");
                                 member.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.TRITACHYON), 5, FleetFactoryV3.getSkillPrefForShip(member), true, null, true, true, 5, new Random()));
                                 member.setVariant(member.getVariant().clone(), false, false);
                                 member.getVariant().setSource(VariantSource.REFIT);
@@ -170,21 +171,22 @@ public class cum_modPlugin extends BaseModPlugin {
                     StB.setSalvageXP(250f);
                     StB.getMemoryWithoutUpdate().set("$hasDefenders", true);
                     StB.addTag("unrecoverable");
-                    FleetParamsV3 fParams = new FleetParamsV3(null, null,
+                    /*FleetParamsV3 fParams = new FleetParamsV3(null, null,
                             Factions.TRITACHYON,
                             2f,
                             FleetTypes.TASK_FORCE,
-                            1,
+                            100,
                             0, 0, 0, 0, 0, 0);
                     fParams.flagshipVariantId = "hyperion_Strike";
-                    fParams.onlyRetainFlagship = true;
-                    CampaignFleetAPI defenders = FleetFactoryV3.createFleet(fParams);
+                    fParams.onlyRetainFlagship = true;*/
+                    CampaignFleetAPI defenders = FleetFactoryV3.createEmptyFleet(Factions.TRITACHYON, FleetTypes.TASK_FORCE, null);
                     defenders.setName("Recon");
                     defenders.getCommander().getStats().setSkillLevel(Skills.ELECTRONIC_WARFARE, 1);
                     defenders.getCommander().getStats().setSkillLevel(Skills.WOLFPACK_TACTICS, 1);
                     defenders.getCommander().getStats().setSkillLevel(Skills.HULL_RESTORATION, 1);
                     defenders.getCommander().getStats().setSkillLevel(Skills.CREW_TRAINING, 1);
-                    FleetMemberAPI member = defenders.getFlagship();
+                    //FleetMemberAPI member = defenders.getFlagship();
+                    FleetMemberAPI member = defenders.getFleetData().addFleetMember("hyperion_Strike");
                     member.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.TRITACHYON), 5, FleetFactoryV3.getSkillPrefForShip(member), true, null, true, true, 5, new Random()));
                     member.setVariant(member.getVariant().clone(), false, false);
                     member.getVariant().setSource(VariantSource.REFIT);
