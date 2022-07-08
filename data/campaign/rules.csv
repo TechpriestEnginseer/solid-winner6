@@ -24,6 +24,11 @@ $faction.id == independent
 $market.ind:techmining","SetTextHighlights 40,000 100 days
 ","""Here are my terms, I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
 100:cum_ttt_neverMind:Never mind",
+cum_ttt_ibrahim_turnInOption2_boggled,DialogOptionSelected,"$option == cum_ttt_ibrahim
+$faction.id == independent
+$market.ind:BOGGLED_DOMAIN_ARCHAEOLOGY","SetTextHighlights 40,000 100 days
+","""Here are my terms, I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
+100:cum_ttt_neverMind:Never mind",
 cum_ttt_ibrahim_turnInOption2,DialogOptionSelected,"$option == cum_ttt_ibrahim
 $faction.id == independent
 $market.ind:techmining
@@ -295,10 +300,10 @@ FireAll PopulateOptions
 ","""What a shame.""",,
 cum_ds_check_failed2,DialogOptionSelected,"$option == cum_ds_rao
 $id == rao
-!RepGTE hegemony FRIENDLY",,"Rao checks your records. ""I'm sorry, you don't seem to be a potential role model according to Augusta. You could improve your standing with the Hegemony as a whole.""",,
+!RepGTE hegemony FRIENDLY","AddTextSmall ""Your reputation with Hegemony is quite concerning. It should be friendly or higher."" gray","Rao checks your records. ""I'm sorry, you don't seem to be a potential role model according to Augusta. You could improve your standing with the Hegemony as a whole.""",,
 cum_ds_check_failed2a,DialogOptionSelected,"$option == cum_ds_rao
 $id == rao
-$player.wasJerkToMerc",,"Rao checks your records. ""I'm sorry, you don't seem to be a potential role model according to Augusta. Someone gave you a bad reputation for telling them off and insulting their ancestry.""",,
+$player.wasJerkToMerc","AddTextSmall ""You insulted a mercenary officer in the past and you'll have to wait for your reputation to cool off."" gray","Rao checks your records. ""I'm sorry, you don't seem to be a potential role model according to Augusta. Someone gave you a bad reputation for telling them off and insulting their ancestry.""",,
 ,,,,,,
 cum_ds_mercs_checkLeaving,MercsLeavingGreeting,$cum_rao score:10,"ShowPersonVisual
 FireBest MercLeavingOptions","""Greetings, mentor! Granduncle Orcus is expecting my return soon, and I'd like to think we've both benefited from the arrangement.
