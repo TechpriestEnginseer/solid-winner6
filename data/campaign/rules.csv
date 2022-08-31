@@ -1,4 +1,15 @@
 id,trigger,conditions,script,text,options,notes
+#vanilla replacement,,,,,,
+gaRH_yes2,DialogOptionSelected,$option == gaRH_yes2,"Call $global.gaRH_ref transferHamatsu
+$global.gaRH_completed = true
+Call $global.gaRH_ref updateStage
+$global.gaRH_completed = true",,cutCommLink:Cut the comm link,
+gaRH_no2,DialogOptionSelected,$option == gaRH_no2,"Call $global.gaRH_ref refusedToReturn
+$global.gaRH_failed = true
+AdjustRepActivePerson HOSTILE -40
+Call $global.gaRH_ref updateStage
+$global.gaRH_failed = true",Ibrahim is just starting to raise her voice as you shut off the comms.,cutCommLinkNoText:Continue,
+,,,,,,
 # a fistful of credit interaction,,,,,,
 cum_afoci_openDialog,PopulateSalvageOptions1,"cum_HasMissionScore afistfulofcredits 1 score:1000
 $cum_afoc_eventRef != null",SetOptionColor salExplore highlight,,,
@@ -10,7 +21,11 @@ cum_HasMissionScore afistfulofcredits 1 score:1000
 $cum_afoc_eventRef != null",,Salvage crews begin the recovery process and find a lot more than expected from a wreck like this.,cum_afoci_continue:Continue,
 cum_afoci_continueLoot,DialogOptionSelected,$option == cum_afoci_continue,"cum_afoc
 AddStoryPoints 1
-$cum_afoc_eventRef = null","Through a closer examination, the ship is miraculously in a pristine condition.",0:salExplore:Continue,
+$cum_afoc_eventRef = null","Through a closer examination, the ship is miraculously in a pristine condition.  Your comms officer interrupts you to inform that this ship has been on the Diktat's wanted list. Turning this in could lead to a reward.","0:salExplore:Continue
+1:cum_afoc_diktat:Turn this over to Diktat patrols",
+cum_afoci_continueLoot2,DialogOptionSelected,$option == cum_afoc_diktat,"ActivateAbility $player.fleetId sensor_burst
+AdjustRep sindrian_diktat WELCOMING 15
+cum_afoc 1",You signal your comms officer to transmit a location of the ship to Diktat authorities. Diktat authorities responds with a token gesture of gratitude and nothing more as the ship begins to be towed away.,defaultLeave:Leave,
 ,,,,,,
 #turning the table interaction,,,,,,
 cum_ttt_ibrahim,PopulateOptions,"$id == ibrahim
@@ -20,21 +35,18 @@ cum_ttt_ibrahim2,PopulateOptions,"$id == ibrahim
 !$global.gaRH_failed
 $cum_ttt_check",FireBest cum_DisableOptionIfNeeded,,"3:cum_ttt_ibrahim:""I'd like to buy a salvage pallet.""",
 cum_ttt_ibrahim_turnInOption,DialogOptionSelected,"$option == cum_ttt_ibrahim
-$faction.id == independent
 $market.ind:techmining","SetTextHighlights 40,000 100 days
 ","""Here are my terms, I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
 100:cum_ttt_neverMind:Never mind",
 cum_ttt_ibrahim_turnInOption2_boggled,DialogOptionSelected,"$option == cum_ttt_ibrahim
-$faction.id == independent
 $market.ind:BOGGLED_DOMAIN_ARCHAEOLOGY","SetTextHighlights 40,000 100 days
 ","""Here are my terms, I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
 100:cum_ttt_neverMind:Never mind",
 cum_ttt_ibrahim_turnInOption2,DialogOptionSelected,"$option == cum_ttt_ibrahim
-$faction.id == independent
 $market.ind:techmining
-$global.gaRH_completed","SetTextHighlights 40,000 100 days","Ibrahim remembers your past action. ""For returning my precious Hamatsu to me, I can offer better terms, I'll add in more to the pallet than what regular buyers usually get and I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
+$global.gaRH_completed","SetTextHighlights Hamatsu 40,000 100 days","Ibrahim remembers your past action. ""For returning my precious Hamatsu to me, I can offer better terms, I'll add in more to the pallet than what regular buyers usually get and I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
 100:cum_ttt_neverMind:Never mind",
-cum_ttt_ibrahim_turnInOption3,DialogOptionSelected,$option == cum_ttt_ibrahim,SetEnabled cum_ttt_ibrahim false,"Ibrahim smiles lightly. ""Things are rather too complicated right now with my salvaging operation to deliver a salvage pallet to you. Maybe come back later when things lighten up?"" ",,
+cum_ttt_ibrahim_turnInOption3,DialogOptionSelected,$option == cum_ttt_ibrahim,SetEnabled cum_ttt_ibrahim false,"Ibrahim smiles lightly. ""Things are rather too complicated right now with my salvaging operation considering there's no tech-mining industry here to deliver a salvage pallet to you. Maybe come back later when things lighten up?"" ",,
 cum_ttt_ibrahim2_neverMindOptionSelected,DialogOptionSelected,$option == cum_ttt_neverMind,FireAll PopulateOptions,,,
 cum_ttt_check,cum_tt_options,cum_HasMissionScore turningthetables 1 score:1000,SetOptionColor cum_ttt_ibrahim_test highlight,,,
 cum_ttt_ibrahim_disableOption,cum_DisableOptionIfNeeded,$cum_ttt_tradeagain score:2,"cum_ttt 0.5 weee
@@ -218,15 +230,13 @@ SetTooltip cum_hn_ibrahim ""Ibrahim can accept your deliveries again in $cum_hn_
 SetTooltipHighlights cum_hn_ibrahim $cum_hn_tradeagain2
 SetEnabled cum_hn_ibrahim false",,,
 cum_hn_ibrahim2_turnInOption,DialogOptionSelected,"$option == cum_hn_ibrahim
-$faction.id == independent
 $market.ind:refining","FireAll cum_PopulateOresTurnInOptions
 SetTextHighlights 4,000 ores 1,000 transplutonic ores ","""Here are my terms, I can accept up to 4,000 ores and 1,000 transplutonic ores. Once the delivery has been confirmed, it'll take me up to a month or two for me to accept any more future deliveries to prevent any suspicion from the faction authorities here depending on how much you're offloading.""",,
 cum_hn_ibrahim2_turnInOption2,DialogOptionSelected,"$option == cum_hn_ibrahim
-$faction.id == independent
 $market.ind:refining
 $global.gaRH_completed","FireAll cum_PopulateOresTurnInOptions
 SetTextHighlights Hamatsu 8,000 ores 2,000 transplutonic ores ","Ibrahim remembers your past action. ""For returning my precious Hamatsu to me, I can offer better terms,  I can accept up to 8,000 ores and 2,000 transplutonic ores. Once the delivery has been confirmed, it'll take me up to a month or two for me to accept any more future deliveries to prevent any suspicion from the faction authorities here depending on how much you're offloading.""",,
-cum_hn_ibrahim2_turnInOption3,DialogOptionSelected,$option == cum_hn_ibrahim,SetEnabled cum_hn_ibrahim false,"Ibrahim smiles lightly. ""Things are rather too complicated right now with my refining operation to do anything with the raw materials. Maybe come back later when things lighten up?"" ",,
+cum_hn_ibrahim2_turnInOption3,DialogOptionSelected,$option == cum_hn_ibrahim,SetEnabled cum_hn_ibrahim false,"Ibrahim smiles lightly. ""Things are rather too complicated right now with my refining operation considering there's no refining industry here to do anything with the raw materials. Maybe come back later when things lighten up?"" ",,
 cum_hn_ibrahim2_playerHasOption,cum_PopulateOresTurnInOptions,,,,0:cum_hn_selectCores:Select ores to turn in,
 cum_hn_ibrahim2_neverMindOption,cum_PopulateOresTurnInOptions,,,,"100:cum_hn_neverMind:""Never mind, I don't actually have any.""",
 cum_hn_ibrahim2_turnInResponse,cum_oresTurnedIn,,FireAll PopulateOptions,$personLastName thanks you and the conversation moves on to other matters.,,

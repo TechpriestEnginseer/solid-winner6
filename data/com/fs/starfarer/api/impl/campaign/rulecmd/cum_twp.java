@@ -34,11 +34,13 @@ public class cum_twp extends BaseCommandPlugin {
 			public void coreUIDismissed() {
 			}
 		});
+                ShipVariantAPI variant = Global.getSettings().getVariant("buffalo_hegemony_Standard").clone();
+                variant.addPermaMod(HullMods.EXPANDED_CARGO_HOLDS, true);
                 ShipRecoverySpecial.ShipRecoverySpecialData data = new ShipRecoverySpecial.ShipRecoverySpecialData(null);
-                data.addShip(new ShipRecoverySpecial.PerShipData("buffalo_hegemony_Standard", ShipRecoverySpecial.ShipCondition.PRISTINE, Factions.NEUTRAL, 0f));
-                data.addShip(new ShipRecoverySpecial.PerShipData("buffalo_hegemony_Standard", ShipRecoverySpecial.ShipCondition.PRISTINE, Factions.NEUTRAL, 0f));
-                data.addShip(new ShipRecoverySpecial.PerShipData("buffalo_hegemony_Standard", ShipRecoverySpecial.ShipCondition.PRISTINE, Factions.NEUTRAL, 0f));
-                data.addShip(new ShipRecoverySpecial.PerShipData("buffalo_hegemony_Standard", ShipRecoverySpecial.ShipCondition.PRISTINE, Factions.NEUTRAL, 0f));
+                data.addShip(new ShipRecoverySpecial.PerShipData(variant, ShipRecoverySpecial.ShipCondition.PRISTINE, Global.getSector().getFaction(Factions.HEGEMONY).pickRandomShipName(), Factions.NEUTRAL, 0f));
+                data.addShip(new ShipRecoverySpecial.PerShipData(variant, ShipRecoverySpecial.ShipCondition.PRISTINE, Global.getSector().getFaction(Factions.HEGEMONY).pickRandomShipName(),Factions.NEUTRAL, 0f));
+                data.addShip(new ShipRecoverySpecial.PerShipData(variant, ShipRecoverySpecial.ShipCondition.PRISTINE, Global.getSector().getFaction(Factions.HEGEMONY).pickRandomShipName(), Factions.NEUTRAL, 0f));
+                data.addShip(new ShipRecoverySpecial.PerShipData(variant, ShipRecoverySpecial.ShipCondition.PRISTINE, Global.getSector().getFaction(Factions.HEGEMONY).pickRandomShipName(), Factions.NEUTRAL, 0f));
                 Misc.setSalvageSpecial(dialog.getInteractionTarget(), data);
                 return true;
 	}

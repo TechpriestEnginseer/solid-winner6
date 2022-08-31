@@ -22,6 +22,7 @@ import java.util.Random;
 public class cum_afoc extends BaseCommandPlugin {
 	public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
 		if (dialog == null) return false;
+                 if (params.size() > 0) {Misc.fadeAndExpire(dialog.getInteractionTarget());return true;}
 		MemoryAPI memory = dialog.getInteractionTarget().getMemoryWithoutUpdate();
 		long seed = memory.getLong(MemFlags.SALVAGE_SEED);
 		Random random = Misc.getRandom(seed, 100);

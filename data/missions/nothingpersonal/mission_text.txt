@@ -20,7 +20,7 @@ The Hegemony commander feels the weight of history's judgment in his chest as he
 The academician-captain of the ISS Athena must leverage her ships' tactical maneuverability in a sudden, desperate fight for survival against a vastly superior Hegemony force.
 
 ***
-All of your ships have one random elite skill and one random non-elite skill except for the academician-captain who is skilled in elite System Expertise, elite Damage Control, elite Energy Weapon Mastery, and Gunnery Implants.
+All of your ships have at least one random elite skill and a random non-elite skill except for the academician-captain who is skilled in elite System Expertise, Missile Specialization, Damage Control, Energy Weapon Mastery, and Gunnery Implants.
 
 The HSS Phoenix is trained in Ballistic Rangefinder, Ordnance Expertise, Combat Endurance, Helmsmanship, and Damage Control.
 ***
