@@ -6,8 +6,8 @@
 	{
 		"major":1,
 		"minor":1,
-		"patch":2,
+		"patch":4,
 	},
-	"starsectorVersion":"0.95.1a-RC6",
-	"directDownloadURL":"https://github.com/TechpriestEnginseer/solid-winner6/releases/download/1.12/Content.Unlocking.Missions.zip",
+	"starsectorVersion":"0.97a-RC10",
+	"directDownloadURL":"https://github.com/TechpriestEnginseer/solid-winner6/releases/download/1.14/Content.Unlocking.Missions.zip",
 }
