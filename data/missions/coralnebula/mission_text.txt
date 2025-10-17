@@ -1,5 +1,5 @@
 Location: Inside the Coral Nebula, outskirts of the Zagan system.
-Date: 153.8.12
+Date: 153.08.12
 
 The world of Mazalot, locus of power in the Zagan system, was a weak link in the independent-minded Persean League's great arc of loosely allied polities across the Sector. The Luddic demographic majority was long relegated to the status of second class citizens; churches were raided, religious leaders harassed, and laws discriminatorily enforced.
 
@@ -19,7 +19,5 @@ Glory, however, is not seized by the meek: Weeks of taunting raids have drawn th
 "You will fly and it will be a storm like they've never known. You are a thunderbolt come to split the sky itself!"
 
 Navarch Mars Kato is uniquely trained as a Strike Commander. Fighters from his piloted ship gain +50% missile, rocket, bomb, and torpedo hitpoints, deal +20% damage to ships of destroyers size and larger, and gain +100% target leading accuracy.
-
-Detachment from the 3rd Holy Armada and Pather irregulars is extensively Crew Trained; they've been preparing for this since their revolution.
 ***
 Campaign Reward: In a nebula between a system's two asteroid belt.

@@ -57,7 +57,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		officer.getName().setFirst("Kane");
         officer.getName().setLast("Gleise");
         officer.setGender(FullName.Gender.MALE);
-        officer.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE));
+        officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE));
         officer.getStats().setLevel(5);
         officer.setPersonality(Personalities.RECKLESS);
         member.setCaptain(officer);

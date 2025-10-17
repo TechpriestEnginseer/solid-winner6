@@ -62,9 +62,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         officer.getStats().setSkillLevel(Skills.SALVAGING, 1);
 		officer.getStats().setSkillLevel(Skills.BULK_TRANSPORT, 1);
         officer.getStats().setLevel(2);
-        officer.setPersonality(Personalities.CAUTIOUS);
         fleetMember.setCaptain(officer);
-		//fleetMember.getCaptain().setPersonality("cautious");
+		fleetMember.getCaptain().setPersonality("cautious");
 		
 		//fleetMember = api.addToFleet(FleetSide.PLAYER, "buffalo_tritachyon_Standard", FleetMemberType.SHIP, false);
 		//fleetMember = api.addToFleet(FleetSide.PLAYER, "falcon_CS", FleetMemberType.SHIP, false);
@@ -99,19 +98,19 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.ENEMY, "station_small_Standard", FleetMemberType.SHIP, false).getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		api.getDefaultCommander(FleetSide.ENEMY).getStats().setSkillLevel(Skills.COORDINATED_MANEUVERS, 1);
 		FleetMemberAPI member = api.addToFleet(FleetSide.ENEMY, "condor_Support", FleetMemberType.SHIP, false);
-        member.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 2, FleetFactoryV3.getSkillPrefForShip(member), true, null, true, false, 0, new Random()));
+        member.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 1, FleetFactoryV3.getSkillPrefForShip(member), true, null, true, false, 0, new Random()));
         member.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		FleetMemberAPI member2 = api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false);
-        member2.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 2, FleetFactoryV3.getSkillPrefForShip(member2), true, null, true, false, 0, new Random()));
+        member2.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 1, FleetFactoryV3.getSkillPrefForShip(member2), true, null, true, false, 0, new Random()));
         member2.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		FleetMemberAPI member3 = api.addToFleet(FleetSide.ENEMY, "hound_Standard", FleetMemberType.SHIP, false);
-        member3.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 2, FleetFactoryV3.getSkillPrefForShip(member3), true, null, true, false, 0, new Random()));
+        member3.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 1, FleetFactoryV3.getSkillPrefForShip(member3), true, null, true, false, 0, new Random()));
         member3.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		FleetMemberAPI member4 = api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false);
-		member4.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 2, FleetFactoryV3.getSkillPrefForShip(member4), true, null, true, false, 0, new Random()));
+		member4.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 1, FleetFactoryV3.getSkillPrefForShip(member4), true, null, true, false, 0, new Random()));
 		member4.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		FleetMemberAPI member5 = api.addToFleet(FleetSide.ENEMY, "hound_Standard", FleetMemberType.SHIP, false);
-		member5.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 2, FleetFactoryV3.getSkillPrefForShip(member5), true, null, true, false, 0, new Random()));
+		member5.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.LUDDIC_PATH), 1, FleetFactoryV3.getSkillPrefForShip(member5), true, null, true, false, 0, new Random()));
 		member5.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		
 //		api.addToFleet(FleetSide.ENEMY, "piranha_wing", FleetMemberType.FIGHTER_WING, false).getCaptain().setPersonality(Personalities.AGGRESSIVE);
@@ -188,8 +187,11 @@ public class MissionDefinition implements MissionDefinitionPlugin {
                                 if (ship.getCustomData().get("poopystinky") == null) {
 									if (ship.getCaptain() != null && ship.getOwner() == 0 && ship.getCaptain().getStats().getSkillsCopy().size() > 4) {
                                         String text = "";
-                                        for (int u = 4; u < ship.getCaptain().getStats().getSkillsCopy().size(); u++) {
+                                        /*for (int u = 4; u < ship.getCaptain().getStats().getSkillsCopy().size(); u++) {
 											if (u < ship.getCaptain().getStats().getSkillsCopy().size()-1) {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ?  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+, " :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+", ");} else {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ? ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+." :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+".");}
+                                        }*/
+										for (int u = 4; u < ship.getCaptain().getStats().getSkillsCopy().size(); u++) {
+											if (u < ship.getCaptain().getStats().getSkillsCopy().size()-1 && ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().isAptitudeEffect()) {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ?  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+, " :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+", ");} else {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ? ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+." :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+".");}
                                         }
 									if (ship.getFleetMember() != null) {
 									Global.getCombatEngine().getCombatUI().addMessage(1, ship.getFleetMember(), Misc.getPositiveHighlightColor(), ship.getName(), Misc.getTextColor(), "", Global.getSettings().getColor("standardTextColor"), "is skilled in "+text);}

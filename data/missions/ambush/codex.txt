@@ -1,0 +1,15 @@
+CATEGORY cum_mission_ambush|codex_ambush|Ambush|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_ambush
+
+BEGIN cum_mission_ambush1|Hint
+ICON codex_ambush
+==Hint==
+Your one-time reward is waiting for you in the asteroid fields of Valhalla!
+END
+
+BEGIN cum_mission_ambush2|Spoilers
+ICON codex_ambush
+==Spoilers==
+One of the asteroid field in the Valhalla Star System contain a wreck of enforcer meant to lure in suspecting travelers by the ships you use in this mission.
+END

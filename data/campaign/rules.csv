@@ -21,8 +21,8 @@ cum_HasMissionScore afistfulofcredits 1 score:1000
 $cum_afoc_eventRef != null",,Salvage crews begin the recovery process and find a lot more than expected from a wreck like this.,cum_afoci_continue:Continue,
 cum_afoci_continueLoot,DialogOptionSelected,$option == cum_afoci_continue,"cum_afoc
 AddStoryPoints 1
-$cum_afoc_eventRef = null","Through a closer examination, the ship is miraculously in a pristine condition.  Your comms officer interrupts you to inform that this ship has been on the Diktat's wanted list. Turning this in could lead to a reward.","0:salExplore:Continue
-1:cum_afoc_diktat:Turn this over to Diktat patrols",
+$cum_afoc_eventRef = null","Through a closer examination, the ship is miraculously in a pristine condition.  Your comms officer interrupts to inform you the ship is on the Diktat's wanted registry. Providing information to the Diktat could lead to a reward.","0:salExplore:Continue
+1:cum_afoc_diktat:Turn this over to Diktat authorities.",
 cum_afoci_continueLoot2,DialogOptionSelected,$option == cum_afoc_diktat,"ActivateAbility $player.fleetId sensor_burst
 AdjustRep sindrian_diktat WELCOMING 15
 cum_afoc 1",You signal your comms officer to transmit a location of the ship to Diktat authorities. Diktat authorities responds with a token gesture of gratitude and nothing more as the ship begins to be towed away.,defaultLeave:Leave,
@@ -30,10 +30,10 @@ cum_afoc 1",You signal your comms officer to transmit a location of the ship to 
 #turning the table interaction,,,,,,
 cum_ttt_ibrahim,PopulateOptions,"$id == ibrahim
 !$global.gaRH_failed
-!$cum_ttt_check",FireBest cum_tt_options,,"3:cum_ttt_ibrahim_test:""I've heard your company runs a salvaging operation on Agreus.""",
+!$cum_ttt_check",FireBest cum_tt_options,,"2:cum_ttt_ibrahim_test:""I've heard your company runs a salvaging operation on Agreus.""",
 cum_ttt_ibrahim2,PopulateOptions,"$id == ibrahim
 !$global.gaRH_failed
-$cum_ttt_check",FireBest cum_DisableOptionIfNeeded,,"3:cum_ttt_ibrahim:""I'd like to buy a salvage pallet.""",
+$cum_ttt_check",FireBest cum_DisableOptionIfNeeded,,"2:cum_ttt_ibrahim:""I'd like to buy a salvage pallet.""",
 cum_ttt_ibrahim_turnInOption,DialogOptionSelected,"$option == cum_ttt_ibrahim
 $market.ind:techmining","SetTextHighlights 40,000 100 days
 ","""Here are my terms, I'll transfer the salvage pallet for 40,000 credits to your storage here. If you don't have access to your own unit, I can lend you a unit at no charge, but you will pay any fee if you keep them in the storage. They don't come free. Once the transaction has been confirmed, it'll take us about 100 days to get another pallet ready for you. Do we have a deal?""","0:cum_ttt_Agree:Agree
@@ -83,7 +83,7 @@ SetTextHighlights Turning the Table","Ibrahim shakes her head in sadness. ""Yes,
 cum_ftgl_intercept,DialogOptionSelected,"$option == marketVisitBar
 $market.id == salamanca score:100
 cum_HasMissionScore forthegreaterlud 1 score:1000
-!$global.cum_ftgl","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
+!$global.cum_ftgl","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out, \""Set you on the right path. If you would please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
 cum_ftgl_intercept_warning,DialogOptionSelected,"$option == marketVisitBar
 $market.id == salamanca score:100
@@ -95,7 +95,7 @@ cum_ftgl_intercept2,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Corvus
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
-RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
+RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out, \""Set you on the right path. If you would please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
 cum_ftgl_intercept2_warning,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Corvus
@@ -108,7 +108,7 @@ cum_ftgl_intercept3,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Magec
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
-RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
+RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out, \""Set you on the right path. If you would please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
 cum_ftgl_intercept3_warning,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Magec
@@ -121,7 +121,7 @@ cum_ftgl_intercept4,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Askonia
 cum_HasMissionScore forthegreaterlud 1 score:1000
 !$global.cum_ftgl
-RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out \""Set you on the right... path. If you please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
+RollProbability 0.2","AddText ""A shift-worker in a utilitarian jumpsuit, a few burns and patches, approaches the bar besides you. They never meet your eye. \""Someone would like to talk with you.\"" It's almost a mutter; difficult to make out, \""Set you on the right path. If you would please, follow me.\"""" highlight",,"cum_ftgl_pickUp:Follow
 cum_ftgl_ignore:Don't follow",
 cum_ftgl_intercept4_warning,DialogOptionSelected,"$option == marketVisitBar
 cum_ftgl 0 Askonia
@@ -138,52 +138,55 @@ cum_ftgl","You are led to a dark place behind the bar.
 
 Your guide has disappeared as they tap at the door. After a moment, the door opens and holds out a hand indicating that you should enter. It is a storage room. Two stools are set at a drooping table. A figure shows its face.
 
-""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl1:""Technology can be moderated and also used in moderation, of course.""
+""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl1:""Technology, regulated, is justified by those who knows what they're doing.""
 1:cum_ftgl2:""Technology does not hurt people. People hurt people through any means including technology."" 
-2:cum_ftgl3:""Technology is sacred and we should do what we can to restore its advances to humanity!"" 
-3:cum_ftgl4:""Technology are nothing, but tools of the Creator's gift. It is not for us to decide what is good or bad.""",
+2:cum_ftgl3:""Technology is a sacred tool, used by the people to restore humanity to its former glory."" 
+3:cum_ftgl4:""Technology is nothing, but a gift of the Creator. We do not decide whether it is good or bad.""",
 cum_ftgl_pickUp2,DialogOptionSelected,$option == cum_ftgl_pickUp,"$global.cum_ftgl = true
 cum_ftgl","You are led to a dark place behind the bar.
 
 Your guide has disappeared as they tap at the door. After a moment, the door opens and holds out a hand indicating that you should enter. It is a storage room. Two stools are set at a drooping table. A figure shows its face.
 
 ""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl2:""Technology does not hurt people. People hurt people through any means including technology."" 
-1:cum_ftgl1:""Technology can be moderated and also used in moderation, of course.""
-2:cum_ftgl4:""Technology are nothing, but tools of the Creator's gift. It is not for us to decide what is good or bad.""
-3:cum_ftgl3:""Technology is sacred and we should do what we can to restore its advances to humanity!""",
+1:cum_ftgl1:""Technology, regulated, is justified by those who knows what they're doing.""
+2:cum_ftgl4:""Technology is nothing, but a gift of the Creator. We do not decide whether it is good or bad.""
+3:cum_ftgl3:""Technology is a sacred tool, used by the people to restore humanity to its former glory.""",
 cum_ftgl_pickUp3,DialogOptionSelected,$option == cum_ftgl_pickUp,"$global.cum_ftgl = true
 cum_ftgl","You are led to a dark place behind the bar.
 
 Your guide has disappeared as they tap at the door. After a moment, the door opens and holds out a hand indicating that you should enter. It is a storage room. Two stools are set at a drooping table. A figure shows its face.
 
-""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl3:""Technology is sacred and we should do what we can to restore its advances to humanity!""
-1:cum_ftgl1:""Technology can be moderated and also used in moderation, of course.""
+""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl3:""Technology is a sacred tool, used by the people to restore humanity to its former glory.""
+1:cum_ftgl1:""Technology, regulated, is justified by those who knows what they're doing.""
 2:cum_ftgl2:""Technology does not hurt people. People hurt people through any means including technology."" 
-3:cum_ftgl4:""Technology are nothing, but tools of the Creator's gift. It is not for us to decide what is good or bad.""",
+3:cum_ftgl4:""Technology is nothing, but a gift of the Creator. We do not decide whether it is good or bad.""",
 cum_ftgl_pickUp4,DialogOptionSelected,$option == cum_ftgl_pickUp,"$global.cum_ftgl = true
 cum_ftgl","You are led to a dark place behind the bar.
 
 Your guide has disappeared as they tap at the door. After a moment, the door opens and holds out a hand indicating that you should enter. It is a storage room. Two stools are set at a drooping table. A figure shows its face.
 
-""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl4:""Technology are nothing, but tools of the Creator's gift. It is not for us to decide what is good or bad.""
-1:cum_ftgl3:""Technology is sacred and we should do what we can to restore its advances to humanity!""
+""Captain $playerName. I know you have great potential in this sector. I must ask you a question and I will make it worth your time, As the cycles pass, there are servants who yield to technology hoping to restore the past mistakes of our ancestors in the name of restoring the so-called Domain and her technologies. However, nothing comes without a cost. What are your thoughts on this matter?""","0:cum_ftgl4:""Technology is nothing, but a gift of the Creator. We do not decide whether it is good or bad.""
+1:cum_ftgl3:""Technology is a sacred tool, used by the people to restore humanity to its former glory.""
 2:cum_ftgl2:""Technology does not hurt people. People hurt people through any means including technology."" 
-3:cum_ftgl1:""Technology can be moderated and also used in moderation, of course.""
+3:cum_ftgl1:""Technology, regulated, is justified by those who knows what they're doing.""
 
 
 ",
-cum_ftgl_Option1,DialogOptionSelected,$option == cum_ftgl1,cum_ftgl 1,"""Said like a sheep from the Church; who gets to determine moderation? Do you think weapons can be used in moderation? Do not let others decide in what to be moderated and what isn't."" 
+cum_ftgl_Option1,DialogOptionSelected,$option == cum_ftgl1,"cum_ftgl 1
+AddStoryPoints 1","""Said like a sheep from the Church; who gets to justify usage? Do you think weapons can be used in moderation? Do not let others decide for you."" 
 
 You are instructed to leave as you are given a cache of weapons on your way out.",cum_ftgl_continue:Continue,
-cum_ftgl_Option2,DialogOptionSelected,$option == cum_ftgl2,AddRemoveCommodity beta_core 1,"""If I give you this device of Mammon, you will not use it to hurt people by any means, then right? You will know what to do with the device then.""
+cum_ftgl_Option2,DialogOptionSelected,$option == cum_ftgl2,"AddRemoveCommodity beta_core 1
+AddStoryPoints 1","""If I give you this device of Moloch, you will not use it to hurt people by any means, then right? You will know what to do with the device then.""
 
 You are instructed to leave as you are given a small tech-cache on your way out.",cum_ftgl_continue:Continue,
-cum_ftgl_Option3,DialogOptionSelected,$option == cum_ftgl3,AddStoryPoints 2,"""Then you will realize your attempts will be foiled by both servants of Mammon and those who fight against Mammon. May Ludd have pity on your path and you find it in your heart to learn the past mistakes of our ancestors as those on Mairaath did."" 
+cum_ftgl_Option3,DialogOptionSelected,$option == cum_ftgl3,AddStoryPoints 2,"""Then you will realize your attempts will be foiled by both servants of Moloch and fighters against Moloch. May Ludd have pity on your path and I hope you find in your heart of the past mistakes of Mairaath."" 
 
 You are instructed to leave with a message about Mairaath. What is the meaning of Mairaath?",cum_ftgl_continue:Continue,
-cum_ftgl_Option4,DialogOptionSelected,$option == cum_ftgl4,AdjustRep luddic_path NEUTRAL 100,"""Truly you understand the teachings of Ludd, I thank you for your response. I will lecture you about the true meaning of Ludd before we leave this room."" 
+cum_ftgl_Option4,DialogOptionSelected,$option == cum_ftgl4,"AdjustRep luddic_path NEUTRAL 100
+AddStoryPoints 1","""Truly you understand the teachings of Ludd, I thank you for your response."" 
 
-You are instructed to leave after the lecture ends with a good understanding of what the Luddic Path stands for.",cum_ftgl_continue:Continue,
+You are instructed to leave and carry on your day as your choice seems to align with the Luddic Path.",cum_ftgl_continue:Continue,
 cum_ftgl_OptionContinue,DialogOptionSelected,$option == cum_ftgl_continue,"$option = marketVisitBar
 FireBest DialogOptionSelected",You leave the room. Heading back to regular bar duties.,,
 ,,,,,,
@@ -219,10 +222,10 @@ Your $shipOrFleet finishes its approach to the $nameInText without further incid
 #hornet's nest interaction,,,,,,
 cum_hn_ibrahim,PopulateOptions,"$id == ibrahim
 !$global.gaRH_failed
-!$cum_hn_check",FireBest cum_hn_options,,"2:cum_hn_ibrahim_test:""The great Ibrahim! The tactical genius of Maxios! I've heard stories about you!""",
+!$cum_hn_check",FireBest cum_hn_options,,"3:cum_hn_ibrahim_test:""The great Ibrahim! The tactical genius of Maxios! I've heard stories about you!""",
 cum_hn_ibrahim2,PopulateOptions,"$id == ibrahim
 !$global.gaRH_failed
-$cum_hn_check",FireBest cum_DisableTurnInoresOptionIfNeeded,,"2:cum_hn_ibrahim:""I'd like to turn in these raw materials that I've acquired...""",
+$cum_hn_check",FireBest cum_DisableTurnInoresOptionIfNeeded,,"3:cum_hn_ibrahim:""I'd like to turn in these raw materials that I've acquired...""",
 cum_hn_ibrahim2_disableTurnInOption,cum_DisableTurnInoresOptionIfNeeded,!cum_hn playerHasOres,"SetTooltip cum_hn_ibrahim ""You do not have any ores in your possession.""
 SetEnabled cum_hn_ibrahim false",,,
 cum_hn_ibrahim2_disableTurnInOption2,cum_DisableTurnInoresOptionIfNeeded,$cum_hn_tradeagain score:2,"cum_hn playerOreTimer

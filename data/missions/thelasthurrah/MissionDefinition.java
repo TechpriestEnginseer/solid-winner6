@@ -76,20 +76,20 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		// Set up the enemy fleet
         api.getDefaultCommander(FleetSide.ENEMY).getStats().setSkillLevel(Skills.FIGHTER_UPLINK, 1);
-		FleetMemberAPI member7 = api.addToFleet(FleetSide.ENEMY, "onslaught_Standard", FleetMemberType.SHIP, "HSS Naga", true);
+		FleetMemberAPI member7 = api.addToFleet(FleetSide.ENEMY, "onslaught_xiv_Elite", FleetMemberType.SHIP, "HSS Naga", true);//api.addToFleet(FleetSide.ENEMY, "onslaught_Standard", FleetMemberType.SHIP, "HSS Naga", true);
         PersonAPI officer2 = OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.HEGEMONY), 5, FleetFactoryV3.getSkillPrefForShip(member7), true, null, true, true, 1, new Random());
         officer2.getName().setFirst(""); //No first name? unless I find it somehow....
         officer2.getName().setLast("Jensulte");
         officer2.setGender(FullName.Gender.MALE);
-        officer2.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE));
+        officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE));
 		officer2.setPersonality(Personalities.AGGRESSIVE);
         member7.setCaptain(officer2);
 //		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
 //		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
-		FleetMemberAPI member8 = api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
+		FleetMemberAPI member8 = api.addToFleet(FleetSide.ENEMY, "dominator_XIV_Elite", FleetMemberType.SHIP, false); //api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
 		member8.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.HEGEMONY), 1, FleetFactoryV3.getSkillPrefForShip(member8), true, null, true, true, 1, new Random()));
 		member8.getCaptain().setPersonality(Personalities.AGGRESSIVE);
-		FleetMemberAPI member9 = api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
+		FleetMemberAPI member9 = api.addToFleet(FleetSide.ENEMY, "dominator_XIV_Elite", FleetMemberType.SHIP, false);//api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
 		member9.setCaptain(OfficerManagerEvent.createOfficer(Global.getSector().getFaction(Factions.HEGEMONY), 1, FleetFactoryV3.getSkillPrefForShip(member9), true, null, true, true, 1, new Random()));
 		member9.getCaptain().setPersonality(Personalities.AGGRESSIVE);
 		FleetMemberAPI member10 = api.addToFleet(FleetSide.ENEMY, "mora_Assault", FleetMemberType.SHIP, false);
@@ -108,9 +108,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.ENEMY, "dominator_Support", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "condor_Support", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "condor_Support", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "enforcer_XIV_Elite", FleetMemberType.SHIP, false);//api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "enforcer_XIV_Elite", FleetMemberType.SHIP, false);//api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "enforcer_XIV_Elite", FleetMemberType.SHIP, false);//api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false);
 		//api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false);
 		//api.addToFleet(FleetSide.ENEMY, "hound_Standard", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "hound_Standard", FleetMemberType.SHIP, false);

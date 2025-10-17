@@ -60,7 +60,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		FleetMemberAPI member2 = api.addToFleet(FleetSide.ENEMY, "kite_hegemony_Interceptor", FleetMemberType.SHIP, false);
 		FleetMemberAPI member3 = api.addToFleet(FleetSide.ENEMY, "enforcer_Elite", FleetMemberType.SHIP, "HSS Judicature", true);
                 PersonAPI officer1 = Global.getSettings().createPerson();
-                officer1.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.HEGEMONY), officer1.getGender()));
+                officer1.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), officer1.getGender()));
 		officer1.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                 officer1.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
 		officer1.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
@@ -70,7 +70,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
                 member3.setCaptain(officer1);
 		FleetMemberAPI member4 = api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, "HSS Executor", false);
                 PersonAPI officer2 = Global.getSettings().createPerson();
-                officer2.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.HEGEMONY), officer2.getGender()));
+                officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), officer2.getGender()));
 		officer2.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                 officer2.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
 		officer2.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);

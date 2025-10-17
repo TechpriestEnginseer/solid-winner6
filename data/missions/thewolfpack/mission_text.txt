@@ -17,4 +17,4 @@ The Deimos captain and her frigate escorts starts with 1 random non-elite skill 
 
 The Hegemony convoy contains two officers with 2 random non-elite skills and 1 random elite skill.
 ***
-Campaign Reward: The remains of the Hegemony convoy drifted towards the nearest star on its transit.
+Campaign Reward: The remains of the Hegemony convoy drifted back toward its origin star.

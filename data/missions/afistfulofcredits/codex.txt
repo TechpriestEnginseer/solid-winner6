@@ -1,0 +1,15 @@
+CATEGORY cum_mission_afistfulofcredits|codex_afistfulofcredits|A Fistful of Credits|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_afistfulofcredits
+
+BEGIN cum_mission_afistfulofcredits1|Hint
+ICON codex_afistfulofcredits
+==Hint==
+One-time reward hidden in the fringes of Askonia.
+END
+
+BEGIN cum_mission_afistfulofcredits2|Spoilers
+ICON codex_afistfulofcredits
+==Spoilers==
+Near the Askonia Fringe Listening Post, a pristine Pirate Mule lies there.
+END

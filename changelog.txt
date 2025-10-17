@@ -1,0 +1,29 @@
+1.15
+* Updated for 0.98a
+* Added LunaLib stuff, Second-in-Command Fixes
+* Added Codex Entries for the Content Unlocking Missions, other modders can add to this codex without new code. See data/missions/[mission_name]/codex.txt for more information.
+
+1.14
+* Updated for 0.97a
+
+1.13
+* Updated for 0.96
+* Updated some text
+* Fixed Missions
+
+1.12
+* Bugfix vanilla for not handing in the Hamatsu reward properly
+* Buffed some buffalos with smods
+* Added turn-in option to Diktat authority in the AFOC mission.
+
+1.11
+* Some bugfixes
+* boggled stuff.
+
+1.1
+* Fixed bugs involving Orcus Rao.
+* Fixed some stuff involving Forlorn Hope.
+* Other messages with salvage derelicts such as a warning will appear urging you to complete the mission before proceeding, but I won't stop you.
+
+1.0
+* released

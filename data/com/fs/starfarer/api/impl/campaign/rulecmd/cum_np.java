@@ -9,6 +9,9 @@ import com.fs.starfarer.api.util.Misc;
 import java.util.List;
 import java.util.Map;
 import org.lwjgl.util.vector.Vector2f;
+import second_in_command.SCData;
+import second_in_command.SCUtils;
+import second_in_command.specs.SCOfficer;
 
 
 public class cum_np extends BaseCommandPlugin {
@@ -29,6 +32,18 @@ public class cum_np extends BaseCommandPlugin {
                         AddRemoveCommodity.addStackGainText(extraSalvage.getStacksCopy().get(0), dialog.getTextPanel());
                         return true;
                     }
+                }
+                if (Global.getSettings().getModManager().isModEnabled("second_in_command")) {
+                    int techlevel = 0;
+                    SCData data = SCUtils.getFleetData(Global.getSector().getPlayerFleet());
+                    for (SCOfficer active : data.getActiveOfficers()) {
+                        if ("sc_technology".equals(active.getAptitudeId())) {
+                            techlevel += active.getActiveSkillIDs().size();
+                        }
+                    }
+                    if (techlevel >= Math.ceil(params.get(0).getInt(memoryMap)/2f)) {Global.getSoundPlayer().playSound(params.get(1).getString(memoryMap), 1, 1, Global.getSoundPlayer().getListenerPos(), new Vector2f());
+                    } /* We don't do that here else {Global.getSoundPlayer().playSound("cr_allied_warning", 1, 1, Global.getSoundPlayer().getListenerPos(), new Vector2f());}*/
+                    return techlevel >= Math.ceil(params.get(0).getInt(memoryMap)/2f);
                 }
                 if (Global.getSector().getPlayerStats() != null && Global.getSector().getPlayerStats().getSkillsCopy() != null) {
                     int techlevel = 0;

@@ -1,0 +1,21 @@
+CATEGORY cum_mission_nothingpersonal|codex_nothingpersonal|Nothing Personal|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_nothingpersonal
+
+BEGIN cum_mission_nothingpersonal1|Hint
+ICON codex_nothingpersonal
+==Hint==
+One-time reward in the Tia-Tax'et system, but you need a really high IQ to unlock it.
+END
+
+BEGIN cum_mission_nothingpersonal2|Spoilers
+ICON codex_nothingpersonal
+==Spoilers==
+Located in an abandoned research station in the Tia-Tax'et system. An encrypted cache lies there. You are required to unlock technology skills to unlock further rewards behind this station. AI Cores can lower this requirement. Final reward is a weapon of omega origin.
+END
+
+BEGIN cum_mission_nothingpersonal3|Crossmod Interaction
+ICON codex_nothingpersonal
+==Second in Command==
+Replaces the skill requirement with having an active {{Technical}} Executive Officer.
+END

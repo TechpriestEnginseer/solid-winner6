@@ -1,0 +1,15 @@
+CATEGORY cum_mission_coralnebula|codex_coralnebula|Coral Nebula|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_coralnebula
+
+BEGIN cum_mission_coralnebula1|Hint
+ICON codex_coralnebula
+==Hint==
+One-time reward in a small nebula of Zagan.
+END
+
+BEGIN cum_mission_coralnebula2|Spoilers
+ICON codex_coralnebula
+==Spoilers==
+Located in a nebula near a stable location in Zagan. You are able to salvage a couple of pristine LP ships.
+END

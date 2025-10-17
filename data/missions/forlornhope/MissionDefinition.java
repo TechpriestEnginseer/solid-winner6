@@ -101,7 +101,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 			solomanofficer.getName().setFirst("Ardis");
                         solomanofficer.getName().setLast("Soloman");
                         solomanofficer.setGender(FullName.Gender.MALE);
-                        solomanofficer.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.FEMALE));
+                        solomanofficer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.FEMALE));
 			solomanofficer.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         solomanofficer.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
 			solomanofficer.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 1);

@@ -1,0 +1,15 @@
+CATEGORY cum_mission_forlornhope|codex_forlornhope|Forlorn Hope|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_forlornhope
+
+BEGIN cum_mission_forlornhope1|Hint
+ICON codex_forlornhope
+==Hint==
+A one-time reward and small renewable rewards in Aztlan.
+END
+
+BEGIN cum_mission_forlornhope2|Spoilers
+ICON codex_forlornhope
+==Spoilers==
+Located near the Aztlan inner jump-point. Completing the mission grants a reputation boost with the Hegemony for paying respect every month. You may search the ship for a Beta Core of which a patrol officer will stop you.
+END

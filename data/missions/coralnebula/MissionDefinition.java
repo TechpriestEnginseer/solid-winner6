@@ -37,7 +37,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		officer.getName().setFirst("Mars");
                 officer.getName().setLast("Kato");
                 officer.setGender(FullName.Gender.MALE);
-                officer.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.PERSEAN), FullName.Gender.MALE));
+                officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.PERSEAN), FullName.Gender.MALE));
 		officer.getStats().setSkillLevel(Global.getSettings().getSkillSpec(Skills.STRIKE_COMMANDER) != null ? Skills.STRIKE_COMMANDER : Skills.MISSILE_SPECIALIZATION, 1);
                 officer.getStats().setLevel(1);
                 api.addToFleet(FleetSide.PLAYER, "astral_Strike", FleetMemberType.SHIP, "PLS Sirocco", true).setCaptain(officer);
@@ -52,28 +52,28 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 //		api.addToFleet(FleetSide.PLAYER, "hound_luddic_church_Standard", FleetMemberType.SHIP, false);
 //		api.addToFleet(FleetSide.PLAYER, "hound_luddic_church_Standard", FleetMemberType.SHIP, false);
 		
-        api.getDefaultCommander(FleetSide.ENEMY).getStats().setSkillLevel(Skills.CREW_TRAINING, 1);
+        //api.getDefaultCommander(FleetSide.ENEMY).getStats().setSkillLevel(Skills.CREW_TRAINING, 1);
 		// Set up the enemy fleet
-		api.addToFleet(FleetSide.ENEMY, "onslaught_Standard", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
+		api.addToFleet(FleetSide.ENEMY, "retribution_Standard", FleetMemberType.SHIP, false).getRepairTracker();//api.addToFleet(FleetSide.ENEMY, "onslaught_Standard", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
 		//api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
-		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
+		api.addToFleet(FleetSide.ENEMY, "eradicator_Assault", FleetMemberType.SHIP, false).getRepairTracker();//api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
+		api.addToFleet(FleetSide.ENEMY, "eradicator_Assault", FleetMemberType.SHIP, false).getRepairTracker();//api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround
 		//api.addToFleet(FleetSide.ENEMY, "dominator_Support", FleetMemberType.SHIP, false, CrewXPLevel.VETERAN);
 		//api.addToFleet(FleetSide.ENEMY, "dominator_Support", FleetMemberType.SHIP, false, CrewXPLevel.VETERAN);
 		//api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;
-		api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;
+		api.addToFleet(FleetSide.ENEMY, "manticore_Assault", FleetMemberType.SHIP, false).getRepairTracker();//api.addToFleet(FleetSide.ENEMY, "enforcer_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;
+		api.addToFleet(FleetSide.ENEMY, "manticore_Balanced", FleetMemberType.SHIP, false).getRepairTracker();//api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;
 		//api.addToFleet(FleetSide.ENEMY, "enforcer_CS", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "condor_Strike", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "lasher_Assault", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "lasher_luddic_path_Raider", FleetMemberType.SHIP, "Keeper of the Flock", false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "condor_Strike", FleetMemberType.SHIP, false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "lasher_Assault", FleetMemberType.SHIP, false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "lasher_luddic_path_Raider", FleetMemberType.SHIP, "Keeper of the Flock", false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false).getRepairTracker(); //Current Workaround;;
 		//api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "hound_luddic_church_Standard", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "hound_luddic_church_Standard", FleetMemberType.SHIP, false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "hound_luddic_path_Attack", FleetMemberType.SHIP, "Ludd's Left Shoe", false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "kite_luddic_path_Raider", FleetMemberType.SHIP, "Wages of Sin", false).getRepairTracker().setCR(0.85f); //Current Workaround;;
-		api.addToFleet(FleetSide.ENEMY, "kite_luddic_path_Strike", FleetMemberType.SHIP, "Memory of Light", false).getRepairTracker().setCR(0.85f); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "hound_luddic_church_Standard", FleetMemberType.SHIP, false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "hound_luddic_church_Standard", FleetMemberType.SHIP, false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "hound_luddic_path_Attack", FleetMemberType.SHIP, "Ludd's Left Shoe", false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "kite_luddic_path_Raider", FleetMemberType.SHIP, "Wages of Sin", false).getRepairTracker(); //Current Workaround;;
+		api.addToFleet(FleetSide.ENEMY, "kite_luddic_path_Strike", FleetMemberType.SHIP, "Memory of Light", false).getRepairTracker(); //Current Workaround;;
 		
 		//api.addToFleet(FleetSide.ENEMY, "talon_wing", FleetMemberType.FIGHTER_WING, false);
 		//api.addToFleet(FleetSide.ENEMY, "talon_wing", FleetMemberType.FIGHTER_WING, false);

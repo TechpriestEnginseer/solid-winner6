@@ -1,0 +1,15 @@
+CATEGORY cum_mission_predatororprey|codex_predatororprey|Predator or Prey|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_predatororprey
+
+BEGIN cum_mission_predatororprey1|Hint
+ICON codex_predatororprey
+==Hint==
+One-time reward by speaking to Daud's secretary.
+END
+
+BEGIN cum_mission_predatororprey2|Spoilers
+ICON codex_predatororprey
+==Spoilers==
+After receiving the Hegemony 150th anniversary holo experience on Chicomoztoc, you can download the Daud holo experience to unlock Auxiliary Thrusters, Ballistic Rangefinder, Blast Doors, Dedicated Targeting Core, Flux Distributor, and Heavy Armor if you have not unlocked them yet.
+END

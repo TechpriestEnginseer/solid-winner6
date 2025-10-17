@@ -20,9 +20,23 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.PerShipData;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.ShipCondition;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.ShipRecoverySpecialData;
+import com.fs.starfarer.api.impl.codex.CodexDataV2;
+import com.fs.starfarer.api.impl.codex.CodexDialogAPI;
+import com.fs.starfarer.api.impl.codex.CodexEntryV2;
+import com.fs.starfarer.api.impl.codex.CodexTextEntryLoader;
 import com.fs.starfarer.api.loading.VariantSource;
+import com.fs.starfarer.api.ui.CustomPanelAPI;
+import com.fs.starfarer.api.ui.TooltipMakerAPI;
+import com.fs.starfarer.api.ui.UIPanelAPI;
 import com.fs.starfarer.api.util.Misc;
+import java.awt.Color;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class cum_modPlugin extends BaseModPlugin {
 
@@ -271,5 +285,67 @@ public class cum_modPlugin extends BaseModPlugin {
                 }
             }
         }
+    }
+    @Override
+    public void onAboutToLinkCodexEntries() {
+        super.onAboutToLinkCodexEntries();
+        try {Global.getSettings().loadTexture("graphics/timid_contentunlocking_missions.png");} catch (IOException ex) {Logger.getLogger(cum_modPlugin.class.getName()).log(Level.SEVERE, null, ex);}
+        CodexEntryV2 missionlist = new CodexEntryV2("cum_mission_list", Global.getSettings().getString("timid_cum", "timid_title"), "graphics/timid_contentunlocking_missions.png") {
+			@Override
+			public boolean hasCustomDetailPanel() {
+				return true;
+			}
+			
+			@Override
+			public boolean hasDetail() {
+				return true;
+			}
+
+			@Override
+			public void createCustomDetail(CustomPanelAPI panel, UIPanelAPI relatedEntries, CodexDialogAPI codex) {
+				float opad = 10f;
+				float width = panel.getPosition().getWidth();
+				float horzBoxPad = 30f;
+				// the right width for a tooltip wrapped in a box to fit next to relatedEntries
+				// 290 is the width of the related entries widget, but it may be null
+				float tw = width - 290f - opad - horzBoxPad + 10f;
+				TooltipMakerAPI text = panel.createUIElement(tw, 0, false);
+				text.setParaSmallInsignia();
+				text.addPara(Global.getSettings().getString("timid_cum", "timid_description"), 0f);
+				
+				panel.updateUIElementSizeAndMakeItProcessInput(text);
+				
+				UIPanelAPI box = panel.wrapTooltipWithBox(text);
+				panel.addComponent(box).inTL(0f, 0f);
+				if (relatedEntries != null) {
+					panel.addComponent(relatedEntries).inTR(0f, 0f);
+				}
+				
+				float height = box.getPosition().getHeight();
+				if (relatedEntries != null) {
+					height = Math.max(height, relatedEntries.getPosition().getHeight());
+				}
+				panel.getPosition().setSize(width, height);
+			}			
+		};
+        CodexDataV2.ROOT.addChild(missionlist);
+        CodexDataV2.rebuildIdToEntryMap();
+        try {
+			String csvName = "data/missions/text_codex_entries.csv";
+			Global.getLogger(cum_modPlugin.class).info("Loading [" + csvName + "]");
+			JSONArray rows = Global.getSettings().loadCSV(csvName, true);
+			
+			for (int i = 0; i < rows.length(); i++) {
+				JSONObject row = rows.getJSONObject(i);
+				String filename = row.getString("filename");
+				Global.getLogger(cum_modPlugin.class).info("Loading [" + filename + "]");
+				String contents = Global.getSettings().loadText(filename);
+				Global.getLogger(cum_modPlugin.class).info("Parsing [" + filename + "]");
+				CodexTextEntryLoader.parseContents(contents, filename);
+                        }
+	} 
+        catch (IOException e) {throw new RuntimeException(e);} 
+        catch (JSONException e) {throw new RuntimeException(e);}
+        CodexTextEntryLoader.linkRelated();
     }
 }

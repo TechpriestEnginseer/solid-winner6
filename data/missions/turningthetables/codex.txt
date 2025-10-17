@@ -1,0 +1,15 @@
+CATEGORY cum_mission_turningthetables|codex_turningthetables|Turning the Table|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_turningthetables
+
+BEGIN cum_mission_turningthetables1|Hint
+ICON codex_turningthetables
+==Hint==
+Renewable reward after speaking to a character in this mission. This reward is improved when you have completed their character-specific task in the campaign.
+END
+
+BEGIN cum_mission_turningthetables2|Spoilers
+ICON codex_turningthetables
+==Spoilers==
+Visit Callisto Ibrahim on Agresus in the Arcadia system to purchase a tech-mined lootbox every 100 days. This lootbox has better rewards when you turn in her precious ISS Hamatsu.
+END

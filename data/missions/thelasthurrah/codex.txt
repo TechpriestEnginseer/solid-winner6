@@ -1,0 +1,15 @@
+CATEGORY cum_mission_thelasthurrah|codex_thelasthurrah|The Last Hurrah|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_thelasthurrah
+
+BEGIN cum_mission_thelasthurrah1|Hint
+ICON codex_thelasthurrah
+==Hint==
+One-time reward in an abandoned station.
+END
+
+BEGIN cum_mission_thelasthurrah2|Spoilers
+ICON codex_thelasthurrah
+==Spoilers==
+Located in an abandoned terraforming station just right next to Mariaath. You can spend 2 story points to gain either a Cryoarithmetic Engine or Soil Nanites.
+END

@@ -1,0 +1,23 @@
+{
+	"graphics":{
+		"codex":{
+			"codex_afistfulofcredits":"data/missions/afistfulofcredits/icon.jpg",
+			"codex_ambush":"data/missions/ambush/icon.jpg",
+			"codex_coralnebula":"data/missions/coralnebula/icon.jpg",
+			"codex_direstraits":"data/missions/direstraits/icon.jpg",
+			"codex_forlornhope":"data/missions/forlornhope/icon.jpg",
+			"codex_forthegreaterlud":"data/missions/forthegreaterlud/icon.jpg",
+			"codex_hornetsnest":"data/missions/hornetsnest/icon.jpg",
+			"codex_nothingpersonal":"data/missions/nothingpersonal/icon.jpg",
+			"codex_predatororprey":"data/missions/predatororprey/icon.jpg",
+			"codex_sinkingthebismarck":"data/missions/sinkingthebismarck/icon.jpg",
+			"codex_thelasthurrah":"data/missions/thelasthurrah/icon.jpg",
+			"codex_thewolfpack":"data/missions/thewolfpack/icon.jpg",
+			"codex_turningthetables":"data/missions/turningthetables/icon.jpg",
+		},
+	},
+}
+
+
+
+

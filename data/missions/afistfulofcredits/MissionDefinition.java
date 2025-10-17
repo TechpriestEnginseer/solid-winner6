@@ -65,7 +65,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 			officer.getName().setFirst("Moon");
             officer.getName().setLast("Salazar");
             officer.setGender(FullName.Gender.FEMALE);
-            officer.setPortraitSprite(OfficerManagerEvent.pickPortrait(Global.getSector().getFaction(Factions.PIRATES), FullName.Gender.FEMALE));
+            officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.PIRATES), FullName.Gender.FEMALE));
             officer.setPersonality("reckless");
             member.setCaptain(officer);
 			api.defeatOnShipLoss("Stranger II");

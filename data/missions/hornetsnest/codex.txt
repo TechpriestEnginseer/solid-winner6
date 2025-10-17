@@ -1,0 +1,15 @@
+CATEGORY cum_mission_hornetsnest|codex_hornetsnest|Hornet's Nest|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_hornetsnest
+
+BEGIN cum_mission_hornetsnest1|Hint
+ICON codex_hornetsnest
+==Hint==
+Renewable reward after speaking to a character in this mission. This reward is improved when you have completed their character-specific task in the campaign.
+END
+
+BEGIN cum_mission_hornetsnest2|Spoilers
+ICON codex_hornetsnest
+==Spoilers==
+Visit Callisto Ibrahim on Agresus in the Arcadia system to convert up to 4,000 ores and 1,000 transplutonic ores into metal and transplutonics at a 1:1 ratio. She doesn't care how you acquire them. She will convert more per interaction when you turn in her precious ISS Hamatsu. This is one of the best ways to farm independent reputation.
+END

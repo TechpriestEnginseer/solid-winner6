@@ -1,0 +1,15 @@
+CATEGORY cum_mission_sinkingthebismarck|codex_sinkingthebismarck|Sinking the Bismar|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_sinkingthebismarck
+
+BEGIN cum_mission_sinkingthebismarck1|Hint
+ICON codex_sinkingthebismarck
+==Hint==
+Your one-time reward awaits you in the Duzhak system.
+END
+
+BEGIN cum_mission_sinkingthebismarck2|Spoilers
+ICON codex_sinkingthebismarck
+==Spoilers==
+Located near Druj in the Duzhak system. You encounter the enemies previously seen here.
+END

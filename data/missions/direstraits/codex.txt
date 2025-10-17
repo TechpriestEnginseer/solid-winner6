@@ -1,0 +1,15 @@
+CATEGORY cum_mission_direstraits|codex_direstraits|Dire Straits|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_direstraits
+
+BEGIN cum_mission_direstraits1|Hint
+ICON codex_direstraits
+==Hint==
+Renewable reward after speaking to a character in this mission.
+END
+
+BEGIN cum_mission_direstraits2|Spoilers
+ICON codex_direstraits
+==Spoilers==
+Orcus Rao can be visited in the Valhalla system at the Ragnar complex allowing you to recruit mercenary officers with guaranteed elite Ordnance Expertise and Ballistic Mastery for no initial upfront cost provided you have good standing with the Hegemony.
+END

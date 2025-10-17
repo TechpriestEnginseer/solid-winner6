@@ -1,0 +1,15 @@
+CATEGORY cum_mission_thewolfpack|codex_thewolfpack|The Wolf Pack|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_thewolfpack
+
+BEGIN cum_mission_thewolfpack1|Hint
+ICON codex_thewolfpack
+==Hint==
+The star Valhalla awaits your one-time reward.
+END
+
+BEGIN cum_mission_thewolfpack2|Spoilers
+ICON codex_thewolfpack
+==Spoilers==
+The star of Valhalla contains an orbit of Buffalo derelicts that are fully pristine and recovered.
+END

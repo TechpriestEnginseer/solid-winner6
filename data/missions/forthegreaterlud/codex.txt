@@ -1,0 +1,15 @@
+CATEGORY cum_mission_forthegreaterlud|codex_forthegreaterlud|For the Greater Ludd|cum_mission_list
+
+CURRENT_CATEGORY cum_mission_forthegreaterlud
+
+BEGIN cum_mission_forthegreaterlud1|Hint
+ICON codex_forthegreaterlud
+==Hint==
+One-time reward in the bars of the worlds involved in this mission.
+END
+
+BEGIN cum_mission_forthegreaterlud2|Spoilers
+ICON codex_forthegreaterlud
+==Spoilers==
+Visiting the bar of Salamanca or by random occurrence, the bars of Askonia, Magec, and Corvus will spawn this event. Your answer will determine one of four rewards: a weapon cache, a beta core, a decent amount of Luddic Path reputation, or 2 story points.
+END
