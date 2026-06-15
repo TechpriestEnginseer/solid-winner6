@@ -2,6 +2,10 @@ package data.missions.hornetsnest;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.characters.FullName.Gender;
+import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
+import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -14,6 +18,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
+import com.fs.starfarer.api.util.Misc;
+import java.util.List;
 import java.util.Random;
 
 public class MissionDefinition implements MissionDefinitionPlugin {
@@ -184,6 +190,32 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		api.addPlanet(0, 0, 400f, "barren", 200f, true);
 		api.addRingAsteroids(0,0, 30, 32, 32, 48, 200);
+		api.addPlugin(new BaseEveryFrameCombatPlugin() {
+			public void init(CombatEngineAPI engine) {
+			}
+			public void advance(float amount, List events) {
+                            if (Global.getCombatEngine().isPaused()) {
+                                return;
+                            }
+                            for (ShipAPI ship : Global.getCombatEngine().getShips()) {
+                                if (ship.getCustomData().get("poopystinky") == null) {
+                                    if (ship.getCaptain() != null && ship.getOwner() == 0) {
+                                        String text = "";
+                                        for (int u = 0; u < ship.getCaptain().getStats().getSkillsCopy().size(); u++) {
+                                            if (!((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().isAptitudeEffect()) {
+                                                if (u < ship.getCaptain().getStats().getSkillsCopy().size()-1) {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ?  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+, " :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+", ");} else {text = text+(((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getLevel() > 1 ? ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+"+." :  ((MutableCharacterStatsAPI.SkillLevelAPI) ship.getCaptain().getStats().getSkillsCopy().get(u)).getSkill().getName()+".");}
+                                            }
+                                        }
+									if (ship.getFleetMember() != null && Global.getCombatEngine().getPlayerShip() == ship) {
+									Global.getCombatEngine().getCombatUI().addMessage(1, ship.getFleetMember(), Misc.getPositiveHighlightColor(), ship.getName(), Misc.getTextColor(), "", Global.getSettings().getColor("standardTextColor"), "is skilled in "+text);}
+                                    }
+                                    ship.setCurrentCR(ship.getCurrentCR()+ship.getMutableStats().getMaxCombatReadiness().getModifiedValue()); //Properly adds the max CR, for some reason it cannot be caught as FleetMemberAPI or this would have been easier...
+                                    ship.setCRAtDeployment(ship.getCRAtDeployment()+ship.getMutableStats().getMaxCombatReadiness().getModifiedValue()); //This only affects the "score" result of said mission, but the algorithm is mostly 100% since you have to basically LOSE ships to lose score. I don't think this needs setting, but eh couldn't help but tried.
+                                    ship.setCustomData("poopystinky", true); //Fires once per ship.
+                                }
+                            }
+                        }
+		});
 	}
 
 }
