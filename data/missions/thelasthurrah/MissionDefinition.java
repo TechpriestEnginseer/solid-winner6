@@ -81,7 +81,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         officer2.getName().setFirst(""); //No first name? unless I find it somehow....
         officer2.getName().setLast("Jensulte");
         officer2.setGender(FullName.Gender.MALE);
-        officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE));
+        officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.MALE, new Random()));
 		officer2.setPersonality(Personalities.AGGRESSIVE);
         member7.setCaptain(officer2);
 //		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);

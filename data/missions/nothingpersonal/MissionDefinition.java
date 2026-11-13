@@ -45,7 +45,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		//api.addToFleet(FleetSide.PLAYER, "apogee_Balanced", FleetMemberType.SHIP, "ISS Van Rijn", true);
 		FleetMemberAPI member = api.addToFleet(FleetSide.PLAYER, "aurora_Assault", FleetMemberType.SHIP, "ISS Athena", true);
         PersonAPI officer = Global.getSettings().createPerson();
-        officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.INDEPENDENT), FullName.Gender.ANY));
+        officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.INDEPENDENT), FullName.Gender.ANY, new Random()));
 		officer.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
 		officer.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
         officer.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 1);
@@ -96,7 +96,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		officer2.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
 		officer2.getStats().setLevel(5);
         officer2.setFaction(Factions.HEGEMONY);
-        officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.ANY));
+        officer2.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.HEGEMONY), FullName.Gender.ANY, new Random()));
         phoenix.setCaptain(officer2);
 		api.addToFleet(FleetSide.ENEMY, "condor_Strike", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "condor_Attack", FleetMemberType.SHIP, false);

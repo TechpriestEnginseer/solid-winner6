@@ -12,6 +12,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
+import java.util.Random;
 
 public class MissionDefinition implements MissionDefinitionPlugin {
 
@@ -37,7 +38,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		officer.getName().setFirst("Mars");
                 officer.getName().setLast("Kato");
                 officer.setGender(FullName.Gender.MALE);
-                officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.PERSEAN), FullName.Gender.MALE));
+                officer.setPortraitSprite(OfficerManagerEvent.pickPortraitPreferNonDuplicate(Global.getSector().getFaction(Factions.PERSEAN), FullName.Gender.MALE, new Random()));
 		officer.getStats().setSkillLevel(Global.getSettings().getSkillSpec(Skills.STRIKE_COMMANDER) != null ? Skills.STRIKE_COMMANDER : Skills.MISSILE_SPECIALIZATION, 1);
                 officer.getStats().setLevel(1);
                 api.addToFleet(FleetSide.PLAYER, "astral_Strike", FleetMemberType.SHIP, "PLS Sirocco", true).setCaptain(officer);
